@@ -1,6 +1,10 @@
 import pygame, sys, random
 from pygame.locals import *
 
+pygame.init()
+score=0
+
+
 mainClock = pygame.time.Clock()
 
 WINDOWWIDTH = 400
@@ -11,6 +15,8 @@ pygame.display.set_caption('Collision detection')
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
 WHITE = (255, 255, 255)
+
+font = pygame.font.SysFont(None, 36)
 
 foodCounter = 0
 NEWFOOD = 40
@@ -83,9 +89,14 @@ while True:
     for food in foods[:]:
         if player.colliderect(food):
             foods.remove(food)
+            score+=1
 
     for i in range(len(foods)):
         pygame.draw.rect(windowSurface, GREEN, foods[i])
+
+    score_text = font.render(f'Score: {score}', True, BLACK)
+    windowSurface.blit(score_text, (10, 10))
+    
 
     pygame.display.update()
     mainClock.tick(40)
