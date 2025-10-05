@@ -178,3 +178,4 @@ while True:
     pygame.display.update()
     waitForPlayerToPressKey()
     gameOverSound.stop()
+
