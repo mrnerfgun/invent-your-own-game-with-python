@@ -117,7 +117,7 @@ while True:
             drawtext('Paused', font, windowSurface, WINDOWWIDTH // 2 - 50, WINDOWHEIGHT // 2)
             pygame.display.update()
             mainClock.tick(FPS)
-            continue  # Skip the rest of the loop to freeze the game
+            continue  
 
         score += 1
 
